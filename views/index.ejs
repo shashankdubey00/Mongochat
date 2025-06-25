@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h3><b>Let's Chat 👨‍💻</b></h3>
+    <form method="get" action="/chats/new">
+        <button type="submit">New Chat </button>
+    </form>
+    <br><br>
+
+    <% for(let chat of chats) { %>
+    <div class="chat">
+        <p><strong>From:</strong> <i><%= chat.from %></i></p>
+        
+        <div class="msg">
+            <p><%= chat.msg %> </p>
+        </div>
+
+        <form method="get" action="/chats/<%= chat._id %>/edit">
+            <button>Edit</button>
+        </form>
+        <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">
+            <button>Delete</button>
+        </form>
+
+        <p><strong>To:</strong> <i><%= chat.to %></i></p>
+        <p><small><%= chat.created_at %></small></p>
+        <hr/>
+    </div>
+    <% } %>
+</body>
+</html>
