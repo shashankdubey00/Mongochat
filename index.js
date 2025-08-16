@@ -80,7 +80,7 @@ app.delete("/chats/:id", async(req,res) => {
 })
 
 app.get("/", (req, res) => {
-  res.send("Root is working");
+  res.render("index"); 
 });
 
 app.listen(8080, () => {
